@@ -44,7 +44,7 @@ const store = useFirstAndFollowStore()
             <tr>
               <th scope="col" class="px-6 py-3">Non-Terminals</th>
               <th scope="col" class="px-6 py-3">FIRST()</th>
-              <th scope="col" class="px-6 py-3">FOLLOW()</th>
+              <!-- <th scope="col" class="px-6 py-3">FOLLOW()</th> -->
             </tr>
           </thead>
           <tbody>
@@ -60,7 +60,7 @@ const store = useFirstAndFollowStore()
                 {{ productionRule.left }}
               </th>
               <td class="px-6 py-4">{{ `\{ ${productionRule.first.join(' , ')}\ }` }}</td>
-              <td class="px-6 py-4">{{ `\{ ${productionRule.first.join(' , ')}\ }` }}</td>
+              <!-- <td class="px-6 py-4">{{ `\{ ${productionRule.first.join(' , ')}\ }` }}</td> -->
             </tr>
           </tbody>
         </table>

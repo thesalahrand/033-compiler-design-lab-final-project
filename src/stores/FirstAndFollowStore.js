@@ -28,9 +28,12 @@ export const useFirstAndFollowStore = defineStore('firstAndFollow', () => {
   }
 
   const calcFirst = () => {
-    const productionRuleClone = [...productionRules]
+    productionRules.forEach((productionRule) => {
+      productionRule.first.splice(0, productionRule.first.length)
+    })
+    const productionRulesClone = [...productionRules]
 
-    productionRuleClone.reverse().forEach((productionRule, idx) => {
+    productionRulesClone.reverse().forEach((productionRule, idx) => {
       const validFirstDetectionArr = []
       validFirstDetectionArr.push(...productionRule.right)
 
@@ -45,11 +48,11 @@ export const useFirstAndFollowStore = defineStore('firstAndFollow', () => {
           firstsOfThisNonTerminal.forEach((firstOfThisNonTerminal) => {
             const validFirstDetectionItem = [...validFirstDetectionArr[idx]]
             if (firstOfThisNonTerminal == 'ε') {
-              validFirstDetectionArr.push(validFirstDetectionItem.splice(1))
+              validFirstDetectionArr.push(validFirstDetectionItem.slice(1))
             } else {
               validFirstDetectionArr.push([
                 firstOfThisNonTerminal,
-                ...validFirstDetectionItem.splice(1)
+                ...validFirstDetectionItem.slice(1)
               ])
             }
           })
